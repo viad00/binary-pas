@@ -5,8 +5,8 @@ begin
   Write(N mod 2);
 end;
 
-function step(x:integer):longint;
- var i:integer; st:longint;
+function step(x:integer):integer;
+ var i:integer; st:integer;
  begin
  if x=0 then step:=1 else begin
       st:=1;
@@ -15,17 +15,16 @@ function step(x:integer):longint;
       step:=st;
       end; end;
  end;
-var k,a,b,d,s:longint;
-
+var k,a,b,d,s:integer;
 
 begin
 s:=0;
 k:=0;
-writeln('выберите режим 1:Bintodec 2:Dectobin'k;
+writeln('Выберите режим 1:bin2dec 2:dec2bin');
 readln(a);
 if a=1 then begin
+writeln('Выбран режим bin2dec. Введите число');
 readln(a);
-
 repeat
       b:=a mod 10;
       d:=a div 10;
@@ -34,7 +33,8 @@ repeat
       a:=d;
 until d=0;
 writeln(s);
-end; else begin 
+end else begin 
+writeln('Выбран режим dec2bin. Введите число');
 readln(a);
 dec2bin(a);
 end;
